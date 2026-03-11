@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pig Pen × Shopify B2B — Your Digital Commerce Vision</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #0d0d0d;
+      --white: #ffffff;
+      --green: #95BF47;
+      --green-dark: #6e9a2c;
+      --rust: #C04B20;
+      --steel: #2C3E50;
+      --steel-light: #3d5166;
+      --mist: #f4f6f8;
+      --text-muted: #6b7280;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      background: rgba(13,13,13,0.95);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo .pig-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--rust);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .nav-badge {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--green);
+      border: 1px solid var(--green);
+      border-radius: 20px;
+      padding: 3px 10px;
+      letter-spacing: 0.05em;
+    }
+    .nav-cta {
+      background: var(--green);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(149,191,71,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(192,75,32,0.08) 0%, transparent 50%);
+    }
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 76px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      max-width: 860px;
+      position: relative;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.6);
+      max-width: 580px;
+      margin: 24px auto 0;
+      line-height: 1.7;
+      position: relative;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      margin-top: 40px;
+      position: relative;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.35;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 48px;
+      background: rgba(255,255,255,0.5);
+    }
+
+    /* ── GLOBAL CENTERING ── */
+    .section-label,
+    .metrics-section h2, .metrics-sub, .metrics-grid,
+    .browser-mock,
+    .revenue-section h2, .revenue-sub, .streams-wrap, .convergence {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── UPLIFT METRICS ── */
+    .metrics-section {
+      background: var(--white);
+      color: var(--black);
+      padding: 80px 48px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 12px;
+    }
+    .metrics-section h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      max-width: 600px;
+      margin-bottom: 8px;
+    }
+    .metrics-sub {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 48px;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+    }
+    .metric-card {
+      background: var(--mist);
+      border-radius: 16px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--green);
+    }
+    .metric-card.rust::before { background: var(--rust); }
+    .metric-card.steel::before { background: var(--steel); }
+    .metric-number {
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .metric-number span { color: var(--green); }
+    .metric-card.rust .metric-number span { color: var(--rust); }
+    .metric-card.steel .metric-number span { color: var(--steel); }
+    .metric-label {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .metric-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .metric-impact {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 13px;
+    }
+    .metric-impact .impact-label {
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .metric-impact .impact-value {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--black);
+    }
+    .metric-impact .impact-note {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ── TOOLTIP ── */
+    .info-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+    }
+    .info-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      color: #6b7280;
+      font-size: 10px;
+      font-weight: 700;
+      cursor: default;
+      flex-shrink: 0;
+      font-style: normal;
+      line-height: 1;
+    }
+    .tooltip {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 0;
+      background: #1f2937;
+      color: #f9fafb;
+      font-size: 12px;
+      line-height: 1.6;
+      padding: 12px 14px;
+      border-radius: 10px;
+      width: 240px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      z-index: 10;
+      font-weight: 400;
+    }
+    .tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 16px;
+      border: 6px solid transparent;
+      border-top-color: #1f2937;
+    }
+    .tooltip strong { color: #95BF47; font-weight: 700; }
+    .info-wrap:hover .tooltip { display: block; }
+
+    /* ── FEATURES ── */
+    .features-section {
+      background: var(--steel);
+      padding: 80px 48px;
+    }
+    .features-section .section-label { color: rgba(149,191,71,0.8); }
+    .features-section h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      max-width: 600px;
+      margin-bottom: 8px;
+    }
+    .features-sub {
+      color: rgba(255,255,255,0.55);
+      font-size: 16px;
+      margin-bottom: 48px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(149,191,71,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+    .feature-tag {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--green);
+      background: rgba(149,191,71,0.12);
+      border-radius: 20px;
+      padding: 3px 10px;
+    }
+
+    /* ── MOCKUP / STORE PREVIEW ── */
+    .preview-section {
+      background: var(--mist);
+      padding: 80px 48px;
+    }
+    .preview-section .section-label { color: var(--green-dark); }
+    .preview-section h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      max-width: 600px;
+      margin-bottom: 8px;
+    }
+    .preview-section .features-sub { color: var(--text-muted); }
+    .browser-mock {
+      max-width: 1100px;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.15);
+      overflow: hidden;
+      margin-top: 40px;
+    }
+    .browser-bar {
+      background: #e8eaed;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .browser-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+    }
+    .browser-dot.red { background: #ff5f57; }
+    .browser-dot.yellow { background: #febc2e; }
+    .browser-dot.green { background: #28c840; }
+    .browser-url {
+      flex: 1;
+      background: var(--white);
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-left: 8px;
+    }
+    .store-header {
+      background: var(--rust);
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .store-header .logo-text {
+      color: var(--white);
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+    }
+    .store-header .login-pill {
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+    .store-banner {
+      background: linear-gradient(135deg, #1a2a1e 0%, #2d4a2a 100%);
+      padding: 48px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .store-banner-text h2 {
+      color: var(--white);
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .store-banner-text p {
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .store-banner-text .store-cta {
+      background: var(--green);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .store-banner-visual {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .account-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .account-badge .dot {
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .account-badge span {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+    .account-badge .price {
+      margin-left: auto;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .store-catalog {
+      padding: 24px 32px;
+      background: var(--white);
+    }
+    .store-catalog h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .product-tile {
+      background: var(--mist);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+    }
+    .product-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .product-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .product-price {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .product-price.locked {
+      background: #e5e7eb;
+      border-radius: 4px;
+      padding: 2px 6px;
+      color: transparent;
+      user-select: none;
+      font-size: 11px;
+    }
+    .product-price.unlocked {
+      color: var(--rust);
+      font-weight: 700;
+    }
+    .reorder-bar {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .reorder-bar span { font-size: 13px; color: #166534; font-weight: 500; }
+    .reorder-btn {
+      background: var(--green);
+      color: var(--black);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* ── REVENUE ARCHITECTURE ── */
+    .revenue-section {
+      background: var(--black);
+      padding: 80px 48px;
+    }
+    .revenue-section .section-label { color: var(--green); }
+    .revenue-section h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      max-width: 700px;
+      margin-bottom: 8px;
+    }
+    .revenue-sub {
+      color: rgba(255,255,255,0.5);
+      font-size: 16px;
+      margin-bottom: 56px;
+      max-width: 560px;
+    }
+
+    /* Split streams */
+    .streams-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0;
+      max-width: 1100px;
+      align-items: start;
+    }
+    .stream {
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .stream-header {
+      padding: 28px 32px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .stream.punchout .stream-header { background: rgba(192,75,32,0.18); border-bottom: 1px solid rgba(192,75,32,0.25); }
+    .stream.b2b .stream-header { background: rgba(149,191,71,0.12); border-bottom: 1px solid rgba(149,191,71,0.2); }
+    .stream-pct {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      flex-shrink: 0;
+    }
+    .stream.punchout .stream-pct { color: var(--rust); }
+    .stream.b2b .stream-pct { color: var(--green); }
+    .stream-header-text {}
+    .stream-header-text h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .stream-header-text p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+    .stream-body {
+      padding: 24px 32px 28px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top: none;
+      border-radius: 0 0 20px 20px;
+    }
+
+    /* Mini flow inside each stream */
+    .mini-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .mini-node {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .mini-node-icon { font-size: 18px; flex-shrink: 0; width: 28px; text-align: center; }
+    .mini-node-text {}
+    .mini-node-text .mn-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .mini-node-text .mn-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+    }
+    .mini-arrow {
+      text-align: center;
+      color: rgba(255,255,255,0.2);
+      font-size: 14px;
+      padding: 4px 0;
+      line-height: 1;
+    }
+    .mini-node.active {
+      background: rgba(149,191,71,0.1);
+      border-color: rgba(149,191,71,0.3);
+    }
+    .mini-node.active .mn-label { color: var(--green); }
+    .mini-node.active-rust {
+      background: rgba(192,75,32,0.1);
+      border-color: rgba(192,75,32,0.3);
+    }
+    .mini-node.active-rust .mn-label { color: #e07a56; }
+
+    .stream-caps {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .stream-cap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+    .stream-cap::before {
+      content: '✓';
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .stream.punchout .stream-cap::before { color: var(--rust); }
+    .stream.b2b .stream-cap::before { color: var(--green); }
+
+    /* Center divider */
+    .streams-divider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 32px;
+      padding-top: 40px;
+      gap: 0;
+    }
+    .divider-line {
+      width: 1px;
+      flex: 1;
+      background: rgba(255,255,255,0.1);
+      min-height: 60px;
+    }
+    .divider-badge {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+
+    /* Convergence bar */
+    .convergence {
+      max-width: 1100px;
+      margin-top: 32px;
+      background: linear-gradient(135deg, rgba(149,191,71,0.12) 0%, rgba(44,62,80,0.3) 50%, rgba(192,75,32,0.1) 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 28px 36px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .convergence-icon { font-size: 32px; flex-shrink: 0; }
+    .convergence-text {}
+    .convergence-text h4 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .convergence-text p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+    .convergence-tags {
+      margin-left: auto;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .conv-tag {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.6);
+    }
+
+    @media (max-width: 780px) {
+      .streams-wrap { grid-template-columns: 1fr; }
+      .streams-divider { flex-direction: row; padding: 20px 0; min-height: auto; }
+      .divider-line { flex: 1; width: auto; height: 1px; min-height: unset; }
+      .convergence { flex-direction: column; }
+      .convergence-tags { margin-left: 0; }
+    }
+
+    /* ── TIMELINE ── */
+    .timeline-section {
+      background: var(--white);
+      padding: 80px 48px;
+    }
+    .timeline-section .section-label { color: var(--green-dark); }
+    .timeline-section h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      max-width: 600px;
+      margin-bottom: 8px;
+    }
+    .timeline-sub { color: var(--text-muted); font-size: 16px; margin-bottom: 48px; }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      max-width: 900px;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 28px;
+      right: 28px;
+      height: 2px;
+      background: #e5e7eb;
+    }
+    .timeline-step {
+      position: relative;
+      padding: 0 16px;
+      padding-top: 56px;
+    }
+    .timeline-dot {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid #e5e7eb;
+      z-index: 2;
+    }
+    .timeline-dot.active {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .timeline-step .step-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green-dark);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .timeline-step h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+    .timeline-step p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--green);
+      padding: 80px 48px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      max-width: 700px;
+      margin: 0 auto 16px;
+      line-height: 1.1;
+    }
+    .cta-section p {
+      color: rgba(0,0,0,0.6);
+      font-size: 18px;
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-btn-dark {
+      background: var(--black);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .cta-btn-outline {
+      background: transparent;
+      color: var(--black);
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 2px solid rgba(0,0,0,0.25);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer .footer-left {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+    footer .footer-right {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+    footer .footer-right strong {
+      color: var(--green);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      nav { padding: 14px 20px; }
+      .hero, .metrics-section, .features-section, .preview-section,
+      .punchout-section, .timeline-section, .cta-section { padding: 60px 20px; }
+      .store-banner { grid-template-columns: 1fr; }
+      .store-banner-visual { display: none; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .punchout-flow { flex-direction: column; }
+      .flow-arrow { transform: rotate(90deg); }
+      .timeline { grid-template-columns: 1fr; }
+      .timeline::before { display: none; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="pig-icon">🐷</div>
+    The Pig Pen × Shopify
+    <span class="nav-badge">B2B Vision</span>
+  </div>
+  <a href="#cta" class="nav-cta">Let's Build This →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Built for Pipeline & Industrial Supply</p>
+  <h1>The future of <em>B2B ordering</em> for The Pig Pen.</h1>
+  <p class="hero-sub">
+    Punchout-ready. Price-controlled. Sales-rep-friendly.<br>
+    A Shopify Plus store built the way your oil & gas customers work.
+  </p>
+  <div class="hero-ctas">
+    <a href="#metrics" class="btn-primary">See the ROI ↓</a>
+    <a href="#features" class="btn-secondary">Explore Features</a>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- STORE PREVIEW -->
+<section class="preview-section">
+  <div style="max-width: 1100px; margin: 0 auto 40px;">
+    <p class="section-label" style="margin: 0 0 12px;">Your Store, Visualized</p>
+    <h2 style="font-size: clamp(28px, 4vw, 42px); font-weight: 800; letter-spacing: -0.02em; color: var(--black); margin-bottom: 8px;">What buyers see when they log in.</h2>
+    <p style="font-size: 16px; color: var(--text-muted);">Pricing visible only to authenticated customers. Reorder surfaced front and center.</p>
+  </div>
+
+  <div class="browser-mock">
+    <div class="browser-bar">
+      <div class="browser-dot red"></div>
+      <div class="browser-dot yellow"></div>
+      <div class="browser-dot green"></div>
+      <div class="browser-url">shop.thepigpeninc.com · Logged in as: Permian Basin Oilfield Services</div>
+    </div>
+
+    <div class="store-header">
+      <div class="logo-text">🐷 The Pig Pen</div>
+      <div class="login-pill">Permian Basin Oilfield ▾</div>
+    </div>
+
+    <div class="store-banner">
+      <div class="store-banner-text">
+        <h2>Your equipment.<br>Reorder in 30 seconds.</h2>
+        <p>Your contracted pricing is loaded. No calls, no quotes, no waiting. Browse your catalog, add to cart, done.</p>
+        <a href="#" class="store-cta">Reorder Last Purchase →</a>
+      </div>
+      <div class="store-banner-visual">
+        <div class="account-badge">
+          <div class="dot"></div>
+          <span>Bi-Directional Foam Pig 6"</span>
+          <span class="price">$47.20</span>
+        </div>
+        <div class="account-badge">
+          <div class="dot"></div>
+          <span>Mandrel Pig w/ Brushes 8"</span>
+          <span class="price">$186.00</span>
+        </div>
+        <div class="account-badge">
+          <div class="dot"></div>
+          <span>Poly Foam Plug 4"</span>
+          <span class="price">$22.40</span>
+        </div>
+        <div style="margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.4);">Your Account · Net 30 · Houston pickup</div>
+      </div>
+    </div>
+
+    <div class="store-catalog">
+      <h3>Your Catalog — Contracted Pricing</h3>
+      <div class="product-grid">
+        <div class="product-tile">
+          <div class="product-icon">🔵</div>
+          <div class="product-name">Foam Pig 6"</div>
+          <div class="product-price unlocked">$47.20 ea</div>
+        </div>
+        <div class="product-tile">
+          <div class="product-icon">🔶</div>
+          <div class="product-name">Mandrel Pig 8"</div>
+          <div class="product-price unlocked">$186.00 ea</div>
+        </div>
+        <div class="product-tile">
+          <div class="product-icon">⚙️</div>
+          <div class="product-name">Mechanical Seal Kit</div>
+          <div class="product-price unlocked">$94.50 ea</div>
+        </div>
+      </div>
+      <div class="reorder-bar">
+        <span>🔄 &nbsp;Last order: 12x Foam Pig 6" + 4x Seal Kit — <strong>Mar 3</strong></span>
+        <button class="reorder-btn">Reorder Now</button>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top: 20px; font-size: 13px; color: var(--text-muted);">
+    * Guests visiting thepigpeninc.com see no prices — only product names and a "Request Account Access" CTA.
+  </p>
+</section>
+
+<!-- METRICS -->
+<section class="metrics-section" id="metrics">
+  <p class="section-label">Shopify B2B Uplift — Applied to Your Business</p>
+  <p class="metrics-sub">Based on Shopify merchant benchmarks across B2B distributors in industrial supply.</p>
+
+  <div class="metrics-grid">
+    <!-- Metric 1 -->
+    <div class="metric-card">
+      <div class="metric-number"><span>33%</span></div>
+      <div class="metric-label">Orders Shift to Self-Serve</div>
+      <div class="metric-desc">
+        Within 6 months of go-live, a third of reorders move online — freeing your outside sales team to focus on the other 60% that needs the relationship.
+      </div>
+      <div class="metric-impact">
+        <div class="impact-label">Impact for Pig Pen</div>
+        <div class="info-wrap">
+          <div class="impact-value">~1,200 hrs/yr</div>
+          <span class="info-icon">i
+            <span class="tooltip">
+              <strong>How we got here:</strong><br>
+              $3.6M ÷ ~$500 avg order = ~7,200 orders/yr<br>
+              × 33% shifting self-serve = ~2,400 orders<br>
+              × 30 min manual handling saved = <strong>~1,200 hrs reclaimed</strong>
+            </span>
+          </span>
+        </div>
+        <div class="impact-note">Estimated rep hours reclaimed from manual reorder processing</div>
+      </div>
+    </div>
+
+    <!-- Metric 2 -->
+    <div class="metric-card rust">
+      <div class="metric-number"><span>22%</span></div>
+      <div class="metric-label">Increase in Reorder Frequency</div>
+      <div class="metric-desc">
+        Frictionless one-click reordering drives customers back more often. No phone tag. No email back-and-forth. Just "Reorder Last Purchase" — done.
+      </div>
+      <div class="metric-impact">
+        <div class="impact-label">Impact for Pig Pen</div>
+        <div class="info-wrap">
+          <div class="impact-value">+$792K GMV</div>
+          <span class="info-icon">i
+            <span class="tooltip">
+              <strong>How we got here:</strong><br>
+              $3.6M baseline GMV<br>
+              × 22% reorder frequency increase<br>
+              = <strong>+$792,000 additional GMV</strong>
+            </span>
+          </span>
+        </div>
+        <div class="impact-note">Estimated from 22% lift on $3.6M baseline, yr 1</div>
+      </div>
+    </div>
+
+    <!-- Metric 3 -->
+    <div class="metric-card steel">
+      <div class="metric-number"><span>20%</span></div>
+      <div class="metric-label">Increase in GMV per Buyer (AOV)</div>
+      <div class="metric-desc">
+        Product discovery and cross-sell surfaces items customers didn't know you carried — mill supplies, fasteners, PPE — right alongside their pig order.
+      </div>
+      <div class="metric-impact">
+        <div class="impact-label">Impact for Pig Pen</div>
+        <div class="info-wrap">
+          <div class="impact-value">+$720K AOV</div>
+          <span class="info-icon">i
+            <span class="tooltip">
+              <strong>How we got here:</strong><br>
+              $3.6M baseline GMV<br>
+              × 20% AOV increase via cross-sell<br>
+              = <strong>+$720,000 per buyer spend lift</strong>
+            </span>
+          </span>
+        </div>
+        <div class="impact-note">Estimated from 20% lift across existing buyer base</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: 40px auto 0; padding: 28px 32px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 16px; max-width: 700px;">
+    <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 8px;">Combined Year-1 Potential</div>
+    <div style="font-size: 48px; font-weight: 900; letter-spacing: -0.03em; color: var(--black); line-height: 1;">$4.96M+</div>
+    <div style="font-size: 14px; color: var(--text-muted); margin-top: 6px;">on a path toward your $5M target — year one, with a lean tech stack.</div>
+  </div>
+</section>
+
+<!-- REVENUE ARCHITECTURE -->
+<section class="revenue-section" id="features">
+  <p class="section-label">One Platform. All Revenue.</p>
+  <h2>Your two buyer types. One Shopify store powering both.</h2>
+  <p class="revenue-sub">40% of your customers need to buy through their procurement portal. 60% need a modern self-serve experience. Shopify handles both — every order in one place.</p>
+
+  <div class="streams-wrap">
+
+    <!-- LEFT: 40% Punchout -->
+    <div class="stream punchout">
+      <div class="stream-header">
+        <div class="stream-pct">40%</div>
+        <div class="stream-header-text">
+          <h3>Punchout Buyers</h3>
+          <p>Enterprise oil & gas accounts using Coupa or Ariba. They can't buy outside their ERP — now they don't have to.</p>
+        </div>
+      </div>
+      <div class="stream-body">
+        <div class="mini-flow">
+          <div class="mini-node active-rust">
+            <div class="mini-node-icon">🏗️</div>
+            <div class="mini-node-text">
+              <div class="mn-label">Buyer logs into Coupa / Ariba</div>
+              <div class="mn-sub">Their existing procurement portal</div>
+            </div>
+          </div>
+          <div class="mini-arrow">↓</div>
+          <div class="mini-node active-rust">
+            <div class="mini-node-icon">🔌</div>
+            <div class="mini-node-text">
+              <div class="mn-label">PunchOut Cloud connects</div>
+              <div class="mn-sub">Shopify app — no custom dev</div>
+            </div>
+          </div>
+          <div class="mini-arrow">↓</div>
+          <div class="mini-node">
+            <div class="mini-node-icon">🐷</div>
+            <div class="mini-node-text">
+              <div class="mn-label">Browses Pig Pen catalog</div>
+              <div class="mn-sub">Their contracted pricing, live</div>
+            </div>
+          </div>
+          <div class="mini-arrow">↓</div>
+          <div class="mini-node">
+            <div class="mini-node-icon">✅</div>
+            <div class="mini-node-text">
+              <div class="mn-label">PO submitted — order placed</div>
+              <div class="mn-sub">No sales rep involvement needed</div>
+            </div>
+          </div>
+        </div>
+        <div class="stream-caps">
+          <div class="stream-cap">Coupa &amp; Ariba ready via PunchOut Cloud</div>
+          <div class="stream-cap">Contracted pricing auto-applied per account</div>
+          <div class="stream-cap">No email, no phone, no manual quote</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="streams-divider">
+      <div class="divider-line"></div>
+      <div class="divider-badge">+</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- RIGHT: 60% B2B Self-Serve -->
+    <div class="stream b2b">
+      <div class="stream-header">
+        <div class="stream-pct">60%</div>
+        <div class="stream-header-text">
+          <h3>B2B Self-Serve Buyers</h3>
+          <p>Relationship accounts, distributors, and rep-managed customers — with a modern portal that works alongside your sales team.</p>
+        </div>
+      </div>
+      <div class="stream-body">
+        <div class="mini-flow">
+          <div class="mini-node active">
+            <div class="mini-node-icon">🔐</div>
+            <div class="mini-node-text">
+              <div class="mn-label">Buyer logs into their portal</div>
+              <div class="mn-sub">Gated — no public pricing</div>
+            </div>
+          </div>
+          <div class="mini-arrow">↓</div>
+          <div class="mini-node active">
+            <div class="mini-node-icon">📋</div>
+            <div class="mini-node-text">
+              <div class="mn-label">Sees their catalog &amp; pricing</div>
+              <div class="mn-sub">Distributor rates, custom terms</div>
+            </div>
+          </div>
+          <div class="mini-arrow">↓</div>
+          <div class="mini-node">
+            <div class="mini-node-icon">🔄</div>
+            <div class="mini-node-text">
+              <div class="mn-label">One-click reorder</div>
+              <div class="mn-sub">Or rep places it on their behalf</div>
+            </div>
+          </div>
+          <div class="mini-arrow">↓</div>
+          <div class="mini-node">
+            <div class="mini-node-icon">📦</div>
+            <div class="mini-node-text">
+              <div class="mn-label">Order confirmed, you fulfill</div>
+              <div class="mn-sub">Cross-sell surfaces at checkout</div>
+            </div>
+          </div>
+        </div>
+        <div class="stream-caps">
+          <div class="stream-cap">Price-gated — guests see nothing</div>
+          <div class="stream-cap">Company profiles with per-account pricing</div>
+          <div class="stream-cap">Reps can manage orders on the backend</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Convergence bar -->
+  <div class="convergence">
+    <div class="convergence-icon">🐷</div>
+    <div class="convergence-text">
+      <h4>Every order. One dashboard.</h4>
+      <p>Punchout POs and portal orders land in the same Shopify admin — inventory, fulfillment, and reporting unified across both revenue streams.</p>
+    </div>
+    <div class="convergence-tags">
+      <div class="conv-tag">Single inventory view</div>
+      <div class="conv-tag">Unified order history</div>
+      <div class="conv-tag">One backend for reps</div>
+      <div class="conv-tag">No ERP required</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="cta-buttons">
+    <a href="https://www.shopify.com/solutions/b2b" class="cta-btn-dark">Explore Shopify B2B</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">Built for The Pig Pen Inc · Houston, TX · Pipeline & Industrial Supply</div>
+  <div class="footer-right">Prepared by <strong>your Shopify B2B account team</strong> · March 2026</div>
+</footer>
+
+</body>
+</html>
